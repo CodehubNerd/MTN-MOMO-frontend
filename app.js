@@ -1,8 +1,8 @@
 
 
-const momoTokenUrl = 'http://localhost:5000/api/get-momo-token';
-const momoRequestToPayUrl = 'http://localhost:5000/api/request-to-pay';
-const keys = 'http://localhost:5000/api/keys';
+const momoTokenUrl = 'https://mtn-momo-api.onrender.com/api/get-momo-token';
+const momoRequestToPayUrl = 'https:/mtn-momo-api.onrender.com/api/request-to-pay';
+const keys = 'https://mtn-momo-api.onrender.com/api/keys';
 
 const fixedAmount = parseFloat(document.getElementById('fixedAmount').value);
 
