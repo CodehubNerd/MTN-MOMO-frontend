@@ -1,21 +1,20 @@
-
-
-const momoTokenUrl = 'https://mtn-momo-api.onrender.com/api/get-momo-token';
-const momoRequestToPayUrl = 'https:/mtn-momo-api.onrender.com/api/request-to-pay';
-const keys = 'https://mtn-momo-api.onrender.com/api/keys';
+const momoTokenUrl = 'http://localhost:5000/api/get-momo-token';
+const momoRequestToPayUrl = 'http:/localhost:5000/api/request-to-pay';
+const keys = 'http://localhost:5000/api/keys';
 
 const fixedAmount = parseFloat(document.getElementById('fixedAmount').value);
 
-const apiKey = "868c576672ae4a4ebf69617e5c9dde1f";
-const subscriptionKey = "cdb5bdc125c34295ab21436767926991";
+const apiUserId = "6f98ed18-9690-4aac-afa6-691267dbce0e";
+const apiKey = "e963b0a9cc6a4cccb2a669d619be91ed";
+const subscriptionKey = "36a9cea744d74f268f28dc01085bc3be";
 
 // wes submit token here
 function initiatePurchase() {
-    submitTokenToAPI(apiKey, subscriptionKey);
+    submitTokenToAPI(apiKey, subscriptionKey, apiUserId);
 }
 
 // we called this function on the initiatePurchase
-function submitTokenToAPI(apiKey, subscriptionKey) {
+function submitTokenToAPI(apiKey, subscriptionKey, apiUserId) {
     const apiEndpoint = momoTokenUrl;
 
     fetch(apiEndpoint, {
@@ -27,6 +26,7 @@ function submitTokenToAPI(apiKey, subscriptionKey) {
         body: JSON.stringify({
             apiKey: apiKey,
             subscriptionKey: subscriptionKey,
+            apiUserId: apiUserId,
         }),
     })
         .then(response => response.json())
